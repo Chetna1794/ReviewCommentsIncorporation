@@ -17,10 +17,10 @@ public class Owner {
 	 * Function provided to the owner to add items to the Menu
 	 * @throws IOException
 	 */
-	public void modifyMenu() throws IOException {
-		try(BufferedWriter bufferedWriterObj = new BufferedWriter(new FileWriter("./src/main/resources/Items.txt", true))) {
+	public void modifyMenu() {
+		try (BufferedWriter bufferedWriterObj = new BufferedWriter(new FileWriter("./src/Items.txt", true))) {
 			@SuppressWarnings("resource")
-			Scanner sc = new Scanner(System.in);			
+			Scanner sc = new Scanner(System.in);
 			String addItems;
 			String item;
 			int itemId;
@@ -29,7 +29,7 @@ public class Owner {
 			do {
 				System.out.println("Do you want to add items in the menu?");
 				addItems = sc.next();
-				if (addItems.equals("Yes")) {
+				if (Constants.YES.equalsIgnoreCase(addItems)) {
 					System.out.println("Enter item id");
 					itemId = sc.nextInt();
 					System.out.println("Enter item name");
@@ -42,8 +42,19 @@ public class Owner {
 				}
 			} while (Constants.YES.equalsIgnoreCase(addItems));
 			bufferedWriterObj.flush();
+			if (!Constants.YES.equalsIgnoreCase(addItems)) {
+				System.out.println("Program exitted!");
+			}
 		} catch (FileNotFoundException fe) {
 			System.err.println(fe);
+		} catch (IOException ie) {
+			System.err.println(ie);
 		}
+	}
+
+	public static void main(String[] args) {
+		Owner ownerObj = new Owner();
+		ownerObj.modifyMenu();
+
 	}
 }
