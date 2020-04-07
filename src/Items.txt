@@ -1,0 +1,8 @@
+1,Pizza,40.0
+2,Rajma,100.0
+3,Chole,90.0
+4,Pizza,120.0
+5,Pasta,150.0
+2,Pizza,120.0
+6,Burger,40.0
+9,Namkpare,30.0
