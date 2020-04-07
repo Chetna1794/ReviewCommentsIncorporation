@@ -9,6 +9,7 @@ import java.util.Scanner;
 // importing classes from other packages
 import resources.Constants;
 
+// Restaurant class
 public class Restaurant implements IRestaurant {
 	/**
 	 * This method is used to show menu to the customer
